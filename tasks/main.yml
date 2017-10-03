@@ -1,0 +1,63 @@
+---
+
+- name: install git packages and tools
+  become: True
+  dnf:
+    state: present
+    name: "{{ item }}"
+  with_items:
+    - git
+    - git-review
+    - git-email
+    - gnupg2
+  tags:
+    - packages
+    - client
+    - git
+
+- name: ensure users have a directory for git templates
+  file:
+    dest: "{{ homedir }}/.git_templates/hooks"
+    state: directory
+  tags:
+    - directory
+    - client
+    - git
+
+- name: copy git hooks to template's directory
+  copy:
+    src: "{{ item }}"
+    dest: "{{ homedir }}/.git_templates/hooks/{{ item }}"
+  with_items:
+    - pre-commit
+  tags:
+    - configuration
+    - client
+    - git
+
+- name: copy git attributes configuration
+  copy:
+    src: gitattributes
+    dest: "{{ homedir }}/.gitattributes"
+  tags:
+    - configuration
+    - client
+    - git
+
+- name: copy git configuration
+  template:
+    src: gitconfig.j2
+    dest: "{{ homedir }}/.gitconfig"
+  tags:
+  - configuration
+  - client
+  - git
+
+- name: copy git ignore configuration
+  copy:
+    src: gitignore_global
+    dest: "{{ homedir }}/.gitignore_global"
+  tags:
+    - configuration
+    - client
+    - git

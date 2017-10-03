@@ -1,0 +1,21 @@
+---
+# general settings
+homedir: '/home/foo'
+
+git:
+  # git user configuration
+  user:
+    name: 'Foo'
+    email: 'foo@example.com'
+    signingkey: '01234567'
+
+  # send email settings
+  sendemail:
+    smtpuser: 'yourname@gmail.com'
+    smtpserver: 'smtp.gmail.com'
+    smtpserverport: '587'
+    smtpencryption: 'tls'
+
+  # gerrit settings
+  gitreview:
+    username: 'foo'
