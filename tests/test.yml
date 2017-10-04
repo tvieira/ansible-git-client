@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - git-client
+    - "{{role_name|default('git-client')}}"

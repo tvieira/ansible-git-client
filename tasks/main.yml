@@ -2,14 +2,13 @@
 
 - name: install git packages and tools
   become: True
-  dnf:
+  package:
     state: present
     name: "{{ item }}"
   with_items:
     - git
     - git-review
     - git-email
-    - gnupg2
   tags:
     - packages
     - client
