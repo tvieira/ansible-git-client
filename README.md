@@ -1,7 +1,7 @@
 git-client
 ==========
 
-This role installs git client with my preffered settings and attributes. It includes send-mail, gpg (gnupg2) and gerrit settings.
+This role installs git client with my preferred settings and attributes. It includes send-mail, gpg (gnupg2) and gerrit settings.
 
 The git templates contain a pre-commit hook for all your new projects when you run `git init`. This pre-commit hook runs pep8, pylint and pyflakes on all `*py` files you commit.
 
@@ -10,7 +10,12 @@ See [files/pre-commit](files/pre-commit) for more details.
 Requirements
 ------------
 
-This role assumes you have vim installed (git preffered editor). It also assumes that the user's directory to which the `homedir` is set to has been previously configured.
+This role assumes you have previously installed:
+
+* vim (my git preferred editor)
+* gnupg2 and you have created your private key
+
+It also assumes that the user's directory to which the `homedir` is set to has been previously configured.
 
 For example, my machines are configured to have my username set to *tmoreira*. Therefore, if I want to run this role to install git-client to my username then I will set the `homedir` variable to
 
@@ -18,7 +23,7 @@ For example, my machines are configured to have my username set to *tmoreira*. T
 homedir: '/home/tmoreira'
 ```
 
-The pre-commit script assumes you have  PEP8, PyLint and PyFlakes installed.
+The pre-commit hook script assumes you have  PEP8, PyLint and PyFlakes installed.
 
 
 Role Variables
