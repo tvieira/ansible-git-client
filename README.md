@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/tvieira/ansible-git-client.svg?branch=master)](https://travis-ci.org/tvieira/ansible-git-client)
+[![Ansible Galaxy](https://img.shields.io/ansible/role/20934.svg)](https://galaxy.ansible.com/tvieira/git-client/)
+
 git-client
 ==========
 
